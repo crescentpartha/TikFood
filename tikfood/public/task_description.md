@@ -17,7 +17,7 @@ Make a fullstack app `TikFood` with the following feature.
   3. Image
   4. Availability : ___true/false___
 
-> Just like what you see in a restaurant like Nawab's Kitchen. <br>
+> Just like what you see in a restaurant like [Nawab's Kitchen](http://nawabkitchen.com/). <br>
 You can think, your application can be used by Nawab's Kitchen.
 
 --- 
