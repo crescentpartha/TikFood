@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Reservation from './components/Reservation/Reservation';
 import Gallery from './components/Gallery/Gallery';
 import About from './components/AboutUS/About';
+import Footer from './components/Shared/Footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
