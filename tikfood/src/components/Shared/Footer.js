@@ -10,8 +10,8 @@ const Footer = () => {
                 <p className="font-semibold">
                     Providing quality food since 2020 <br /> <br />
                     Subid Bazar, Sylhet-3100, Sylhet Division, Bangladesh. <br />
-                    Call Us: +8801723242526 <br />
-                    E-mail: tikfoodbd@gmail.com
+                    Call Us: <span className='text-blue-500'><Link to='tel:+8801723242526'>+8801723242526</Link></span> <br />
+                    E-mail: <span className='text-blue-500'><Link to='mailto:tikfoodbd@gmail.com'>tikfoodbd@gmail.com</Link></span>
                 </p>
                 <p>Copyright ©{new Date().getFullYear()} - All right reserved</p>
             </div>

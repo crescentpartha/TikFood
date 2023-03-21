@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import restaurant from '../../images/restaurant.jpg';
 
 const About = () => {
@@ -13,8 +14,8 @@ const About = () => {
                     <address>
                         <p className='font-semibold uppercase'>Location</p>
                         <p>Subid Bazar, Sylhet 3100 Sylhet, Sylhet Division, Bangladesh</p>
-                        <p>Call Us: +8801723242526</p>
-                        <p>E-mail: tikfoodbd@gmail.com</p>
+                        <p>Call Us: <span className='text-blue-600'><Link to='tel:+8801723242526'>+8801723242526</Link></span></p>
+                        <p>E-mail: <span className='text-blue-600'><Link to='mailto:tikfoodbd@gmail.com'>tikfoodbd@gmail.com</Link></span></p>
                     </address>
                 </div>
             </div>
