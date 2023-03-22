@@ -1,13 +1,40 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogin from './SocialLogin';
+import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    let signInError;
+    if (error || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || updateError?.message}</small></p>
+    }
+
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        // console.log(user);
+        navigate('/');
+    }
+
+    const onSubmit = async (data) => {
+        // console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     }
 
     return (
@@ -113,7 +140,7 @@ const Register = () => {
                             </label>
                         </div>
 
-                        {/* {signInError} */}
+                        {signInError}
                         <input
                             className='btn btn-sm w-full max-w-xs mt-3'
                             type="Submit"
