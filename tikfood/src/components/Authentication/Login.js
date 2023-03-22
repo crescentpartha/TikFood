@@ -1,13 +1,38 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from './Loading';
 import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+
+    let signInError;
+    if (error) {
+        signInError = <p className='text-red-500'><small>{error?.message}</small></p>
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        // console.log(user);
+        navigate('/');
+    }
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
     }
 
     return (
@@ -77,7 +102,7 @@ const Login = () => {
                             </label>
                         </div>
 
-                        {/* {signInError} */}
+                        {signInError}
                         <input
                             className='btn btn-sm w-full max-w-xs mt-3'
                             type="Submit"
