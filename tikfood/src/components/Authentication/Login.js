@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -13,19 +14,21 @@ const Login = () => {
         <div className='flex my-5 justify-center items-center'>
             <div className="card w-96 bg-white shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Sign In</h2>
+                    <h2 className="text-center text-2xl font-bold uppercase mb-2">Sign In</h2>
+
+                    <SocialLogin></SocialLogin>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         {/* Email */}
                         <div className="form-control w-full max-w-xs">
-                            <label className="label">
+                            <label className="label py-1">
                                 <span className="label-text">Email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Email Address"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered h-8 w-full max-w-xs"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -45,13 +48,13 @@ const Login = () => {
 
                         {/* Password */}
                         <div className="form-control w-full max-w-xs">
-                            <label className="label">
+                            <label className="label py-1">
                                 <span className="label-text">Password</span>
                             </label>
                             <input
                                 type="password"
                                 placeholder="Password"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered h-8 w-full max-w-xs"
                                 {...register("password", {
                                     required: {
                                         value: true,
@@ -76,7 +79,7 @@ const Login = () => {
 
                         {/* {signInError} */}
                         <input
-                            className='btn w-full max-w-xs mt-3'
+                            className='btn btn-sm w-full max-w-xs mt-3'
                             type="Submit"
                             value="Sign In"
                             readOnly

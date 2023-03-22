@@ -19,13 +19,13 @@ const RetrievePassword = () => {
 
                         {/* Email */}
                         <div className="form-control w-full max-w-xs">
-                            <label className="label">
+                            <label className="label py-1">
                                 <span className="label-text">Email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Email Address"
-                                className="input input-bordered w-full max-w-xs"
+                                className="input input-bordered h-8 w-full max-w-xs"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -45,7 +45,7 @@ const RetrievePassword = () => {
 
                         {/* {signInError} */}
                         <input
-                            className='btn w-full max-w-xs mt-3'
+                            className='btn btn-sm w-full max-w-xs mt-3'
                             type="Submit"
                             value="Reset"
                             readOnly
