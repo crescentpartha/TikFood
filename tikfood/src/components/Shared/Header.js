@@ -18,6 +18,7 @@ const Header = () => {
                             <li><Link to='/reservation' className='text-md font-semibold uppercase'>Reservation</Link></li>
                             <li><Link to='/gallery' className='text-md font-semibold uppercase'>Gallery</Link></li>
                             <li><Link to='/about' className='text-md font-semibold uppercase'>About US</Link></li>
+                            <li><Link to='/register' className='text-md font-semibold uppercase'>Register</Link></li>
                         </ul>
                     </div>
                     {/* <Link to='' className="btn btn-ghost normal-case text-xl">TikFood</Link> */}
@@ -33,7 +34,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/register' className="btn">Register</Link>
+                    <button className='btn hidden lg:block'><Link to='/register'>Register</Link></button>
                     <label tabIndex={1} htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
