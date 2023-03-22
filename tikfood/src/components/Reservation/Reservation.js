@@ -7,10 +7,13 @@ import photo1 from '../../images/reservation/1.jpg';
 import photo2 from '../../images/reservation/2.jpg';
 import photo3 from '../../images/reservation/3.jpg';
 import photo4 from '../../images/reservation/4.jpg';
+import PageTitle from '../Shared/PageTitle';
 
 const Reservation = () => {
     return (
         <div className='mt-10 px-5 md:px-20'>
+            <PageTitle title="Reservation"></PageTitle>
+
             <h2 className='text-5xl mt-5 mb-8 text-center'>Reservation</h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 items-center justify-center bg-base-200 py-10 my-2 rounded">
                 <img src={restaurent_book} alt='Reserve your seat' className="w-full p-2 rounded-lg shadow-2xl" />

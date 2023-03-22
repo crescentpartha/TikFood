@@ -4,10 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import banner from '../../images/banner.jpg';
 import restaurant from '../../images/restaurant.jpg';
+import PageTitle from '../Shared/PageTitle';
 
 const Home = () => {
     return (
         <div className=''>
+            <PageTitle title="Home"></PageTitle>
+
             {/* Banner Section */}
             <div className="hero min-h-screen w-fit xl:w-screen" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="hero-overlay bg-opacity-20"></div>

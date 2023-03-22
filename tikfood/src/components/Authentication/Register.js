@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import SocialLogin from './SocialLogin';
 import auth from '../../firebase.init';
 import Loading from './Loading';
+import PageTitle from '../Shared/PageTitle';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -39,6 +40,8 @@ const Register = () => {
 
     return (
         <div className='flex my-5 justify-center items-center'>
+            <PageTitle title="Register"></PageTitle>
+
             <div className="card w-96 bg-white shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold uppercase mb-2">Register</h2>

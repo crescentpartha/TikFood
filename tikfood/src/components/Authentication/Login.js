@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import PageTitle from '../Shared/PageTitle';
 import Loading from './Loading';
 import SocialLogin from './SocialLogin';
 
@@ -37,6 +38,8 @@ const Login = () => {
 
     return (
         <div className='flex my-5 justify-center items-center'>
+            <PageTitle title="Sign In"></PageTitle>
+
             <div className="card w-96 bg-white shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold uppercase mb-2">Sign In</h2>

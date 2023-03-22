@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import restaurant from '../../images/restaurant.jpg';
+import PageTitle from '../Shared/PageTitle';
 
 const About = () => {
     return (
         <div className="hero min-h-screen bg-base-200 px-5 py-5">
+            <PageTitle title="About US"></PageTitle>
+
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={restaurant} alt='Restaurant' className="max-w-xl rounded-lg shadow-2xl" />
                 <div className='px-5'>

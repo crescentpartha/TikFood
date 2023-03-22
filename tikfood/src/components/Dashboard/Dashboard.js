@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import PageTitle from '../Shared/PageTitle';
 
 const Dashboard = () => {
     return (
         <div className="drawer drawer-mobile">
+            <PageTitle title="Dashboard"></PageTitle>
+
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content text-left p-5">
                 {/* <!-- Page content here --> */}
