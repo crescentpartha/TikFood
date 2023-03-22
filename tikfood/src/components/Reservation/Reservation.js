@@ -12,7 +12,7 @@ const Reservation = () => {
     return (
         <div className='mt-10 px-5 md:px-20'>
             <h2 className='text-5xl mt-5 mb-8 text-center'>Reservation</h2>
-            <div className="grid md:grid-cols-1 xl:grid-cols-2 items-center justify-center bg-base-200 py-10 my-2 rounded">
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 items-center justify-center bg-base-200 py-10 my-2 rounded">
                 <img src={restaurent_book} alt='Reserve your seat' className="w-full p-2 rounded-lg shadow-2xl" />
                 <div className='px-5 md:mt-5'>
                     <h1 className="text-4xl font-semibold text-red-500">Welcome</h1>
