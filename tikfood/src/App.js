@@ -10,6 +10,9 @@ import Reservation from './components/Reservation/Reservation';
 import Gallery from './components/Gallery/Gallery';
 import About from './components/AboutUS/About';
 import Footer from './components/Shared/Footer';
+import DisplayAllMenu from './components/Dashboard/DisplayAllMenu';
+import MakeMenu from './components/Dashboard/MakeMenu';
+import UpdateMenu from './components/Dashboard/UpdateMenu';
 
 function App() {
   return (
@@ -18,7 +21,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+          <Route index element={<DisplayAllMenu></DisplayAllMenu>}></Route>
+          <Route path='make-menu' element={<MakeMenu></MakeMenu>}></Route>
+          <Route path='update-menu' element={<UpdateMenu></UpdateMenu>}></Route>
+        </Route>
         <Route path='/reservation' element={<Reservation></Reservation>}></Route>
         <Route path='/gallery' element={<Gallery></Gallery>}></Route>
         <Route path='/about' element={<About></About>}></Route>
