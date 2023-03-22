@@ -19,7 +19,7 @@ const Home = () => {
             </div>
 
             {/* Welcome Section */}
-            <div className="grid md:grid-cols-1 xl:grid-cols-2 gap-5 px-10 items-center justify-center bg-base-200 py-20 my-2 rounded">
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 px-10 items-center justify-center bg-base-200 py-20 my-2 rounded">
                 <img src={restaurant} alt='Restaurant' className="w-full p-2 rounded-lg shadow-2xl" />
                 <div className='px-5 md:mt-5'>
                     <h1 className="text-4xl font-normal text-red-600">Welcome</h1>
