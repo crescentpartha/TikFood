@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Register from './components/Authentication/Register';
 import Login from './components/Authentication/Login';
+import RetrievePassword from './components/Authentication/RetrievePassword';
 import NotFound from './components/Shared/NotFound';
 import Header from './components/Shared/Header';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -31,6 +32,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/retrieve-password' element={<RetrievePassword></RetrievePassword>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
