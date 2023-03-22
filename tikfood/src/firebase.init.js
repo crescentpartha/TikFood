@@ -6,12 +6,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA_ELUaiK5Qz4GXQfzYhuR8L2srVHfqD5g",
-  authDomain: "tikfood-61d96.firebaseapp.com",
-  projectId: "tikfood-61d96",
-  storageBucket: "tikfood-61d96.appspot.com",
-  messagingSenderId: "1036061767338",
-  appId: "1:1036061767338:web:d390e2ef811815c92b42d3"
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
