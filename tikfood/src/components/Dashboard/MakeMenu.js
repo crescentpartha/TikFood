@@ -1,11 +1,62 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const MakeMenu = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+
+    const imageStorageAPIKey = 'd0f9b89e42ed8d95bb102c26dd41f8b3';
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
+
+        /* Upload image to imgbb server and get image url */
+        const image = data.image[0];
+        // console.log(image);
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageAPIKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('imgbb', result);
+                if (result.success) {
+                    const img = result.data.url;
+                    const menu = {
+                        name: data.name,
+                        price: data.price,
+                        availability: data.availability,
+                        img: img
+                    }
+                    /* Send to my database | Save new Menu Info in the database through server */
+
+                    // POST a new Menu item from client-side to server-side
+                    const serverURL = `http://localhost:5000/menu`;
+                    fetch(serverURL, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(menu)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            // console.log(inserted);
+                            if (inserted.insertedId) {
+                                toast('Successfully added a new menu item!');
+                                navigate('/dashboard');
+                            }
+                            else {
+                                toast.error('Failed to create a new menu item!');
+                            }
+                        })
+                }
+            })
     }
 
     return (
@@ -55,12 +106,12 @@ const MakeMenu = () => {
                 {/* Availability */}
                 <div className='text-start mb-3'>
                     <label className='font-semibold pb-2 text-gray-500' htmlFor="">Availability</label> <br />
-                    <select {...register("specialty")} className='d-block w-full px-2 py-1 rounded'>
+                    <select {...register("availability")} className='d-block w-full px-2 py-1 rounded'>
                         <option value="true">True</option>
                         <option value="false">False</option>
                     </select>
                 </div>
-                
+
                 {/* Image */}
                 <div className="text-start mb-3">
                     <label className='font-semibold pb-2 text-gray-500' htmlFor="">Photo</label> <br />
