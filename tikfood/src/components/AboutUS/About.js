@@ -17,8 +17,8 @@ const About = () => {
                     <address>
                         <p className='font-semibold uppercase'>Location</p>
                         <p>Subid Bazar, Sylhet 3100 Sylhet, Sylhet Division, Bangladesh</p>
-                        <p>Call Us: <span className='text-blue-600'><Link to='tel:+8801723242526'>+8801723242526</Link></span></p>
-                        <p>E-mail: <span className='text-blue-600'><Link to='mailto:tikfoodbd@gmail.com'>tikfoodbd@gmail.com</Link></span></p>
+                        <p>Call Us: <span className='text-blue-500'><Link to='tel:+8801723242526'>+8801723242526</Link></span></p>
+                        <p>E-mail: <span className='text-blue-500'><Link to='mailto:tikfoodbd@gmail.com'>tikfoodbd@gmail.com</Link></span></p>
                     </address>
                 </div>
             </div>
