@@ -9,7 +9,7 @@ const About = () => {
             <PageTitle title="About US"></PageTitle>
 
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src={restaurant} alt='Restaurant' className="max-w-xl rounded-lg shadow-2xl" />
+                <img src={restaurant} alt='Restaurant' className="max-w-40 sm:max-w-xl rounded-lg shadow-2xl" />
                 <div className='px-5'>
                     <h1 className="text-5xl font-bold">TikFood</h1>
                     <hr className='border-2 border-gray-300 w-60 mt-4 mx-auto' />
