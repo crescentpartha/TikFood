@@ -61,7 +61,7 @@ const MakeMenu = () => {
 
     return (
         <div>
-            <h2 className='text-2xl font-bold text-gray-500 mb-2 text-left'>Make a new menu item!</h2>
+            <h2 className='text-2xl font-bold text-gray-500 mb-4 text-left'>Make a new menu item!</h2>
             <form className='border rounded p-5' onSubmit={handleSubmit(onSubmit)}>
                 {/* Name */}
                 <div className='text-start mb-3'>
