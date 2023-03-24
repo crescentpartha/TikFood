@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
 const UpdateMenuModal = ({ menuItem, setMenuItem }) => {
@@ -6,7 +7,24 @@ const UpdateMenuModal = ({ menuItem, setMenuItem }) => {
     const { name, img } = menuItem;
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
+
+        // Update a menu item in client-side and send to the server-side
+        const url = `http://localhost:5000/menu/${menuItem._id}`;
+        // console.log(url, id);
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('success', result);
+                toast('Product updated successfully!!!');
+                setMenuItem(null);
+            });
     }
 
     return (
