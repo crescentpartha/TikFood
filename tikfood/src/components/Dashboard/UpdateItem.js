@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const UpdateItem = ({ menu, setMenuItem }) => {
+const UpdateItem = ({ menu, setMenuItem, setMenuItemDelete }) => {
     const { name, price, availability, img } = menu;
 
     return (
@@ -32,7 +31,11 @@ const UpdateItem = ({ menu, setMenuItem }) => {
                 className='text-blue-400 font-normal hover:cursor-pointer'
                 onClick={() => setMenuItem(menu)}
             >Update</label></td>
-            <td><Link to='#' className='text-blue-400 font-normal'>Delete</Link></td>
+            <td><label
+                htmlFor="delete-modal"
+                className='text-blue-400 font-normal hover:cursor-pointer'
+                onClick={() => setMenuItemDelete(menu)}
+            >Delete</label></td>
         </tr>
     );
 };

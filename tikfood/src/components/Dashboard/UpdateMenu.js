@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import useMenus from '../../hooks/useMenus';
+import DeleteMenuModal from './DeleteMenuModal';
 import UpdateItem from './UpdateItem';
 import UpdateMenuModal from './UpdateMenuModal';
 
 const UpdateMenu = () => {
     const [menus] = useMenus();
     const [menuItem, setMenuItem] = useState(null);
+    const [menuItemDelete, setMenuItemDelete] = useState(null);
     // console.log(menuItem);
 
     return (
@@ -27,6 +29,7 @@ const UpdateMenu = () => {
                                 key={menu._id}
                                 menu={menu}
                                 setMenuItem={setMenuItem}
+                                setMenuItemDelete={setMenuItemDelete}
                             ></UpdateItem>)
                         }
                     </tbody>
@@ -34,6 +37,9 @@ const UpdateMenu = () => {
             </div>
             {
                 menuItem && <UpdateMenuModal menuItem={menuItem} setMenuItem={setMenuItem}></UpdateMenuModal>
+            }
+            {
+                menuItemDelete && <DeleteMenuModal menuItemDelete={menuItemDelete} setMenuItemDelete={setMenuItemDelete}></DeleteMenuModal>
             }
         </div>
     );
