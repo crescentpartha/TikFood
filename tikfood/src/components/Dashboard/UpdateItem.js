@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UpdateItem = ({ menu }) => {
+const UpdateItem = ({ menu, setMenuItem }) => {
     const { name, price, availability, img } = menu;
 
     return (
@@ -19,14 +19,19 @@ const UpdateItem = ({ menu }) => {
                         <div>
                             {
                                 availability === "true"
-                                ? <div className="text-sm opacity-50">Available</div>
-                                : <div className="text-sm opacity-50 text-red-500">Not Available</div>
+                                    ? <div className="text-sm opacity-50">Available</div>
+                                    : <div className="text-sm opacity-50 text-red-500">Not Available</div>
                             }
                         </div>
                     </div>
                 </div>
             </td>
-            <td><Link to='#' className='text-blue-400 font-normal'>Update</Link></td>
+            {/* The button to open modal */}
+            <td><label
+                htmlFor="update-modal"
+                className='text-blue-400 font-normal hover:cursor-pointer'
+                onClick={() => setMenuItem(menu)}
+            >Update</label></td>
             <td><Link to='#' className='text-blue-400 font-normal'>Delete</Link></td>
         </tr>
     );

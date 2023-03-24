@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useMenus from '../../hooks/useMenus';
 import UpdateItem from './UpdateItem';
+import UpdateMenuModal from './UpdateMenuModal';
 
 const UpdateMenu = () => {
     const [menus] = useMenus();
+    const [menuItem, setMenuItem] = useState(null);
+    // console.log(menuItem);
 
     return (
         <div>
@@ -13,7 +16,7 @@ const UpdateMenu = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Menu Items</th>
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
@@ -23,11 +26,15 @@ const UpdateMenu = () => {
                             menus.map(menu => <UpdateItem
                                 key={menu._id}
                                 menu={menu}
+                                setMenuItem={setMenuItem}
                             ></UpdateItem>)
-                        }                        
+                        }
                     </tbody>
                 </table>
             </div>
+            {
+                menuItem && <UpdateMenuModal menuItem={menuItem} setMenuItem={setMenuItem}></UpdateMenuModal>
+            }
         </div>
     );
 };

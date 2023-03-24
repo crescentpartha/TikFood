@@ -106,7 +106,7 @@ const MakeMenu = () => {
                 {/* Availability */}
                 <div className='text-start mb-3'>
                     <label className='font-semibold pb-2 text-gray-500' htmlFor="">Availability</label> <br />
-                    <select {...register("availability")} className='d-block w-full px-2 py-1 rounded'>
+                    <select {...register("availability")} className='d-block w-full px-2 py-1 rounded' style={{ border: '1px solid #d6d6d6' }}>
                         <option value="true">True</option>
                         <option value="false">False</option>
                     </select>
