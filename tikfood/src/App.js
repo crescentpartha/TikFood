@@ -16,6 +16,7 @@ import Footer from './components/Shared/Footer';
 import DisplayAllMenu from './components/Dashboard/DisplayAllMenu';
 import MakeMenu from './components/Dashboard/MakeMenu';
 import UpdateMenu from './components/Dashboard/UpdateMenu';
+import RequiteAdmin from './components/Authentication/RequiteAdmin';
 
 function App() {
   return (
@@ -26,8 +27,16 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
           <Route index element={<DisplayAllMenu></DisplayAllMenu>}></Route>
-          <Route path='make-menu' element={<MakeMenu></MakeMenu>}></Route>
-          <Route path='update-menu' element={<UpdateMenu></UpdateMenu>}></Route>
+          <Route path='make-menu' element={
+            <RequiteAdmin>
+              <MakeMenu></MakeMenu>
+            </RequiteAdmin>
+          }></Route>
+          <Route path='update-menu' element={
+            <RequiteAdmin>
+              <UpdateMenu></UpdateMenu>
+            </RequiteAdmin>
+          }></Route>
         </Route>
         <Route path='/reservation' element={<Reservation></Reservation>}></Route>
         <Route path='/gallery' element={<Gallery></Gallery>}></Route>
