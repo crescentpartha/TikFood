@@ -26,7 +26,7 @@ const SocialLogin = () => {
     }
 
     const handleSignInWithGoogle = () => {
-        setUserInfo({ role: "user" });
+        setUserInfo({ role: "admin" });
         signInWithGoogle();
     }
 
