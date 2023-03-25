@@ -10,7 +10,7 @@ const UpdateMenuModal = ({ menuItem, setMenuItem }) => {
         // console.log(data);
 
         // Update a menu item in client-side and send to the server-side
-        const url = `http://localhost:5000/menu/${menuItem._id}`;
+        const url = `https://tikfood-server-crescentpartha.vercel.app/menu/${menuItem._id}`;
         // console.log(url, id);
         fetch(url, {
             method: 'PUT',

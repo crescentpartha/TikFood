@@ -7,7 +7,7 @@ const useFindAdmin = user => {
         // console.log(user);
         const email = user?.email;
         if (email) {
-            fetch(`http://localhost:5000/user/admin?email=${email}`, {
+            fetch(`https://tikfood-server-crescentpartha.vercel.app/user/admin?email=${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'

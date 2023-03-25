@@ -18,7 +18,7 @@ const useCreateUserToken = user => {
         };
         // console.log(email, name, role);
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://tikfood-server-crescentpartha.vercel.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

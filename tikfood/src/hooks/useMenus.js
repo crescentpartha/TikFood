@@ -4,7 +4,7 @@ const useMenus = () => {
     const [menus, setMenus] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/menu')
+        fetch('https://tikfood-server-crescentpartha.vercel.app/menu')
             .then(res => res.json())
             .then(data => setMenus(data));
     }, [menus]);

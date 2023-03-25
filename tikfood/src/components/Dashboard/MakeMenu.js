@@ -36,7 +36,7 @@ const MakeMenu = () => {
                     /* Send to my database | Save new Menu Info in the database through server */
 
                     // POST a new Menu item from client-side to server-side
-                    const serverURL = `http://localhost:5000/menu`;
+                    const serverURL = `https://tikfood-server-crescentpartha.vercel.app/menu`;
                     fetch(serverURL, {
                         method: 'POST',
                         headers: {

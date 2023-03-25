@@ -4,7 +4,7 @@ const DeleteMenuModal = ({ menuItemDelete }) => {
 
     const handleDelete = (id) => {
         // delete a menu item in client-side and send to the server-side
-        const url = `http://localhost:5000/menu/${id}`;
+        const url = `https://tikfood-server-crescentpartha.vercel.app/menu/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
