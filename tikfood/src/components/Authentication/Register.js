@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -6,6 +6,7 @@ import SocialLogin from './SocialLogin';
 import auth from '../../firebase.init';
 import Loading from './Loading';
 import PageTitle from '../Shared/PageTitle';
+import useCreateUserToken from '../../hooks/useCreateUserToken';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -16,6 +17,8 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [userInfo, setUserInfo] = useState(null);
+    const [token] = useCreateUserToken([user, userInfo]);
     const navigate = useNavigate();
 
     let signInError;
@@ -34,6 +37,7 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         // console.log(data);
+        setUserInfo(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
     }

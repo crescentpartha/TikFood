@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import useCreateUserToken from '../../hooks/useCreateUserToken';
 import auth from '../../firebase.init';
 import Loading from './Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [userInfo, setUserInfo] = useState(null);
+    const [token] = useCreateUserToken([gUser, userInfo]);
     const navigate = useNavigate();
 
     let signInError;
@@ -18,14 +21,19 @@ const SocialLogin = () => {
     }
 
     if (gUser) {
-        console.log(gUser);
+        // console.log(gUser);
         navigate('/');
+    }
+
+    const handleSignInWithGoogle = () => {
+        setUserInfo({ role: "user" });
+        signInWithGoogle();
     }
 
     return (
         <div>
             <button
-                onClick={() => signInWithGoogle()}
+                onClick={() => handleSignInWithGoogle()}
                 className="btn btn-sm w-full"
             >Continue with Google</button>
             {signInError}
