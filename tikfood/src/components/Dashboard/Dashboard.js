@@ -1,8 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useFindAdmin from '../../hooks/useFindAdmin';
 import PageTitle from '../Shared/PageTitle';
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useFindAdmin(user);
+    // console.log(admin);
     return (
         <div className="drawer drawer-mobile">
             <PageTitle title="Dashboard"></PageTitle>
@@ -18,8 +24,12 @@ const Dashboard = () => {
                 <ul className="menu p-4 w-80 bg-gray-100 rounded-t-lg text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard'>All Menu</Link></li>
-                    <li><Link to='/dashboard/make-menu'>Make Menu</Link></li>
-                    <li><Link to='/dashboard/update-menu'>Update Menu</Link></li>
+                    {
+                        admin === 'admin' && <div>
+                            <li><Link to='/dashboard/make-menu'>Make Menu</Link></li>
+                            <li><Link to='/dashboard/update-menu'>Update Menu</Link></li>
+                        </div>
+                    }
                 </ul>
 
             </div>
